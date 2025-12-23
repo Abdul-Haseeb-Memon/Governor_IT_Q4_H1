@@ -106,7 +106,11 @@
       "Bash(git branch -M main)",
       "Bash(git remote add origin https://github.com/Abdul-Haseeb-Memon/Governor_IT_Q4_H1.git)",
       "Bash(git push -u origin main)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"Add complete project including frontend book and documentation\")",
+      "Bash(git push)",
+      "Bash(git add frontend_H_book/docusaurus.config.ts)",
+      "Bash(git commit -m \"Fix base URL configuration for Vercel deployment and update GitHub links\")"
     ]
   }
 }
