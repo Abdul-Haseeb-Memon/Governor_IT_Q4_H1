@@ -110,7 +110,13 @@
       "Bash(git commit -m \"Add complete project including frontend book and documentation\")",
       "Bash(git push)",
       "Bash(git add frontend_H_book/docusaurus.config.ts)",
-      "Bash(git commit -m \"Fix base URL configuration for Vercel deployment and update GitHub links\")"
+      "Bash(git commit -m \"Fix base URL configuration for Vercel deployment and update GitHub links\")",
+      "Bash(git push origin main --force)",
+      "Bash(git rm --cached \"backend/answer_generation/__pycache__/*.pyc\" \"backend/ingestion/__pycache__/*.pyc\" \"backend/retrieval/__pycache__/*.pyc\")",
+      "Bash(git add backend/ frontend_H_book/ specs/ .claude/settings.local.json .gitignore README.md backend/Dockerfile backend/render.yaml backend/requirements.txt backend/api_server.py backend/answer_generation/ backend/ingestion/ backend/retrieval/ frontend_H_book/components/ frontend_H_book/src/ frontend_H_book/package.json frontend_H_book/package-lock.json frontend_H_book/docusaurus.config.ts frontend_H_book/.env frontend_H_book/.gitignore frontend_H_book/README.md)",
+      "Bash(git add -A)",
+      "Bash(git add backend/ frontend_H_book/ specs/)",
+      "Bash(git add:*)"
     ]
   }
 }
