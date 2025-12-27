@@ -73,6 +73,10 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    // Custom fields to pass environment variables to client
+    customFields: {
+      apiBaseUrl: process.env.REACT_APP_API_BASE_URL || process.env.API_BASE_URL || 'https://governor-it-q4-h1.onrender.com',
+    },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
       logo: {

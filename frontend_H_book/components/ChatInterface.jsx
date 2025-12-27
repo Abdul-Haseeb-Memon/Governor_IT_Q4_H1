@@ -22,22 +22,24 @@ const ChatInterface = () => {
 
   // Configure the RAG service with the environment variable when component mounts
   useEffect(() => {
-    // Get the API base URL from environment variables
-    let apiBaseUrl = 'http://localhost:8002'; // Default fallback
+    // Get the API base URL from Docusaurus custom fields
+    // The environment variable is injected during build time in Docusaurus
+    let apiBaseUrl = 'http://localhost:8002'; // Default fallback for local development
 
-    // Check for REACT_APP_API_BASE_URL environment variable (for Vercel deployment)
-    if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_BASE_URL) {
+    // Try to get the API base URL from Docusaurus custom fields
+    if (typeof window !== 'undefined' && window.DOCUSAURUS_CUSTOM_FIELDS && window.DOCUSAURUS_CUSTOM_FIELDS.apiBaseUrl) {
+      apiBaseUrl = window.DOCUSAURUS_CUSTOM_FIELDS.apiBaseUrl;
+    }
+    // Fallback to environment variables (only available during build time)
+    else if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_BASE_URL) {
       apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
     }
-    // Also check for API_BASE_URL as fallback
     else if (typeof process !== 'undefined' && process.env && process.env.API_BASE_URL) {
       apiBaseUrl = process.env.API_BASE_URL;
     }
-    // For browser environment, check window object
-    else if (typeof window !== 'undefined' && window.REACT_APP_API_BASE_URL) {
-      apiBaseUrl = window.REACT_APP_API_BASE_URL;
-    } else if (typeof window !== 'undefined' && window.API_BASE_URL) {
-      apiBaseUrl = window.API_BASE_URL;
+    // If still no URL found, use default production URL
+    else if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
+      apiBaseUrl = 'https://governor-it-q4-h1.onrender.com'; // Production backend
     }
 
     // Configure the RAG service with the proper API base URL
