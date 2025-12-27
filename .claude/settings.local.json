@@ -24,7 +24,10 @@
       "Bash(node -e \"\nconst fs = require\\(''fs''\\);\nconst content = fs.readFileSync\\(''.claude/settings.local.json'', ''utf8''\\);\ntry {\n  const parsed = JSON.parse\\(content\\);\n  console.log\\(''✅ JSON is valid''\\);\n  console.log\\(''Permissions count:'', parsed.permissions.allow.length\\);\n  console.log\\(''All permissions are properly formatted''\\);\n} catch \\(e\\) {\n  console.log\\(''❌ JSON Error:'', e.message\\);\n}\n\")",
       "Bash(git checkout main)",
       "Bash(dir requirements.txt)",
-      "Bash(findstr requirements)"
+      "Bash(findstr requirements)",
+      "Bash(git commit -m \"Prepare project for GitHub upload and deployment\n\n- Add deployment configuration files for Vercel and Render\n- Create requirements.txt with all backend dependencies\n- Add Procfile and render.yaml for backend deployment\n- Ensure all sensitive files are properly excluded from git\n- Clean up Claude Code settings with minimal required permissions\n- Finalize RAG system with complete frontend-backend integration\")",
+      "Bash(find history/prompts -name \"*.md\" -exec grep -l \"api.*key\\\\|API.*KEY\\\\|secret\\\\|token\\\\|password\" {} +)",
+      "Bash(git checkout HEAD -- backend/.env)"
     ]
   }
 }
