@@ -31,7 +31,8 @@ class RAGService {
         headers: {
           'Content-Type': 'application/json',
           ...(this.authToken && { 'Authorization': `Bearer ${this.authToken}` })
-        }
+        },
+        timeout: 30000 // 30 second timeout
       });
 
       // Validate JSON request/response format compatibility
@@ -67,7 +68,8 @@ class RAGService {
         headers: {
           'Content-Type': 'application/json',
           ...(this.authToken && { 'Authorization': `Bearer ${this.authToken}` })
-        }
+        },
+        timeout: 30000 // 30 second timeout
       });
 
       // Validate JSON request/response format compatibility
@@ -107,7 +109,7 @@ class RAGService {
       // Test with a simple ping or health check endpoint if available
       // For now, we'll try to make a simple request to see if the server is reachable
       const response = await axios.get(`${this.apiBaseUrl}/health`, {
-        timeout: 5000,
+        timeout: 30000, // 30 second timeout
         headers: {
           ...(this.authToken && { 'Authorization': `Bearer ${this.authToken}` })
         }
