@@ -117,7 +117,16 @@
       "Bash(git add -A)",
       "Bash(git add backend/ frontend_H_book/ specs/)",
       "Bash(git add:*)",
-      "Bash(git remote add origin https://github.com/Abdul-Haseeb-Memon/Governor_IT_Q4_H1_Project.git)"
+      "Bash(git remote add origin https://github.com/Abdul-Haseeb-Memon/Governor_IT_Q4_H1_Project.git)",
+      "Bash(tasklist)",
+      "Bash(findstr python)",
+      "Bash(findstr :8000)",
+      "Bash(findstr :8002)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill /PID 7676 /F)",
+      "Bash(taskkill /F /PID 7676)",
+      "Bash(findstr :3000)",
+      "Bash(powershell -Command \"Stop-Process -Id 11400 -Force\")"
     ]
   }
 }

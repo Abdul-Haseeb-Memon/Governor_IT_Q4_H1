@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from retrieval.retrieve import retrieve_relevant_content
 from answer_generation.answer_generator import generate_answer, GeneratedAnswer as GeneratedAnswerObj
+from ingestion.ingest import run_ingestion_pipeline
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -140,6 +141,47 @@ async def qa_endpoint(request: RetrieveRequest):
 
     except Exception as e:
         logger.error(f"Error in QA endpoint: {str(e)}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class IngestionRequest(BaseModel):
+    sitemap_url: Optional[str] = None
+    skip_duplicates: bool = True
+    resume: bool = False
+
+
+class IngestionResponse(BaseModel):
+    status: str
+    message: str
+    processed_urls: int = 0
+    failed_urls: int = 0
+
+
+@app.post("/ingest", response_model=IngestionResponse)
+async def ingestion_endpoint(request: IngestionRequest):
+    """Trigger the ingestion pipeline to populate the vector database."""
+    try:
+        logger.info(f"Starting ingestion pipeline with sitemap: {request.sitemap_url or 'default'}")
+
+        # Run the ingestion pipeline
+        run_ingestion_pipeline(
+            sitemap_url=request.sitemap_url,
+            skip_duplicates=request.skip_duplicates,
+            resume=request.resume
+        )
+
+        # For a more complete response, we would need to modify run_ingestion_pipeline
+        # to return statistics, but for now we'll return a basic success response
+        response = IngestionResponse(
+            status="success",
+            message="Ingestion pipeline completed successfully"
+        )
+
+        logger.info("Ingestion pipeline completed successfully")
+        return response
+
+    except Exception as e:
+        logger.error(f"Error in ingestion endpoint: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
