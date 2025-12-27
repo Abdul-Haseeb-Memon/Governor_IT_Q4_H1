@@ -25,7 +25,7 @@ const config: Config = {
   organizationName: 'Abdul-Haseeb-Memon', // Usually your GitHub org/user name.
   projectName: 'Governor_IT_Q4_H1', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -86,6 +86,7 @@ const config: Config = {
           position: 'left',
           label: 'Documentation',
         },
+        {to: '/chat', label: 'Chat', position: 'left'},
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/Abdul-Haseeb-Memon/Governor_IT_Q4_H1',

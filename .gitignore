@@ -38,14 +38,16 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
 
 # Coverage
 coverage/
 .nyc_output/
 
 # Environment
-.env*
-!.env
+.env
+.env.local
+.env.*.local
 !.env.example
 
 # Docusaurus cache
