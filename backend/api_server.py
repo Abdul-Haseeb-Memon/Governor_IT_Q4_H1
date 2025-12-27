@@ -15,7 +15,9 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from retrieval.retrieve import retrieve_relevant_content
-from answer_generation.answer_generator import generate_answer, GeneratedAnswer as GeneratedAnswerObj
+from answer_generation.answer_generator import generate_answer
+# Import the GeneratedAnswer class separately to avoid conflicts
+from answer_generation.answer_generator import GeneratedAnswer
 from ingestion.ingest import run_ingestion_pipeline
 
 # Set up logging
@@ -99,7 +101,7 @@ async def answer_endpoint(request: AnswerRequest):
         sources = [chunk.get('source_url', '') for chunk in request.context if 'source_url' in chunk]
 
         # Generate answer using the backend system
-        answer_obj: GeneratedAnswerObj = generate_answer(request.query, context_texts, sources)
+        answer_obj: GeneratedAnswer = generate_answer(request.query, context_texts, sources)
 
         response = AnswerResponse(
             answer=answer_obj.answer_text,
