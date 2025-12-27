@@ -26,6 +26,8 @@ const ChatInterface = () => {
     // Get the API base URL from the config file
     const apiBaseUrl = config.API_BASE_URL;
 
+    console.log('Configured API Base URL:', apiBaseUrl); // Debug log
+
     // Configure the RAG service with the proper API base URL
     ragService.configureAPI(apiBaseUrl);
   }, []);

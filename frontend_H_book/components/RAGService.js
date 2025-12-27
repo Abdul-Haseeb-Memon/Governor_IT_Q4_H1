@@ -15,6 +15,7 @@ class RAGService {
   configureAPI(apiBaseUrl, authToken = null) {
     this.apiBaseUrl = apiBaseUrl;
     this.authToken = authToken;
+    console.log('RAGService configured with API Base URL:', this.apiBaseUrl); // Debug log
   }
 
   /**
