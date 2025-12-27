@@ -20,6 +20,11 @@ const config: Config = {
   // For Vercel deployment, use '/'
   baseUrl: '/',
 
+  // Custom fields to pass environment variables to the frontend
+  customFields: {
+    apiBaseUrl: process.env.REACT_APP_API_BASE_URL || process.env.API_BASE_URL || 'https://governor-it-q4-h1.onrender.com'
+  },
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Abdul-Haseeb-Memon', // Usually your GitHub org/user name.
@@ -72,10 +77,6 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
-    },
-    // Custom fields to pass environment variables to client
-    customFields: {
-      apiBaseUrl: process.env.REACT_APP_API_BASE_URL || process.env.API_BASE_URL || 'https://governor-it-q4-h1.onrender.com',
     },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',

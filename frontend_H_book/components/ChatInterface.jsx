@@ -3,6 +3,7 @@ import ChatInput from './ChatInput';
 import ChatDisplay from './ChatDisplay';
 import useChatState from './useChatState';
 import RAGService from './RAGService';
+import config from '../src/utils/config';
 
 // Debounce function to limit API calls
 const debounce = (func, wait) => {
@@ -22,25 +23,8 @@ const ChatInterface = () => {
 
   // Configure the RAG service with the environment variable when component mounts
   useEffect(() => {
-    // Get the API base URL from Docusaurus custom fields
-    // The environment variable is injected during build time in Docusaurus
-    let apiBaseUrl = 'http://localhost:8002'; // Default fallback for local development
-
-    // Try to get the API base URL from Docusaurus custom fields
-    if (typeof window !== 'undefined' && window.DOCUSAURUS_CUSTOM_FIELDS && window.DOCUSAURUS_CUSTOM_FIELDS.apiBaseUrl) {
-      apiBaseUrl = window.DOCUSAURUS_CUSTOM_FIELDS.apiBaseUrl;
-    }
-    // Fallback to environment variables (only available during build time)
-    else if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_BASE_URL) {
-      apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
-    }
-    else if (typeof process !== 'undefined' && process.env && process.env.API_BASE_URL) {
-      apiBaseUrl = process.env.API_BASE_URL;
-    }
-    // If still no URL found, use default production URL
-    else if (typeof window !== 'undefined' && window.location.hostname !== 'localhost') {
-      apiBaseUrl = 'https://governor-it-q4-h1.onrender.com'; // Production backend
-    }
+    // Get the API base URL from the config file
+    const apiBaseUrl = config.API_BASE_URL;
 
     // Configure the RAG service with the proper API base URL
     ragService.configureAPI(apiBaseUrl);
@@ -310,32 +294,5 @@ const ChatInterface = () => {
   );
 };
 
-// Safely get environment variable for browser compatibility
-const getApiBaseUrl = () => {
-  if (typeof process !== 'undefined' && process.env && process.env.API_BASE_URL) {
-    return process.env.API_BASE_URL;
-  }
-  // For browser environment, you can set a default or use a config variable
-  return typeof window !== 'undefined' && window.API_BASE_URL
-    ? window.API_BASE_URL
-    : 'http://localhost:8000';
-};
-
-// Update the environment configuration to be browser-safe
-export const validateFunctionalRequirements = () => {
-  const requirements = {
-    apiIntegration: typeof window !== 'undefined' && 'fetch' in window, // Check if fetch API is available
-    reactAvailable: typeof React !== 'undefined', // Check if React is available
-    componentsExist: ChatInput && ChatDisplay && useChatState && RAGService,
-    environmentConfigured: getApiBaseUrl()
-  };
-
-  const allMet = Object.values(requirements).every(req => req);
-
-  return {
-    allRequirementsMet: allMet,
-    requirements
-  };
-};
 
 export default ChatInterface;
