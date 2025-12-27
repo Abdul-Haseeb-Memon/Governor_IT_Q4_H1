@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ChatInput from './ChatInput';
 import ChatDisplay from './ChatDisplay';
 import useChatState from './useChatState';
@@ -19,6 +19,30 @@ const debounce = (func, wait) => {
 
 const ChatInterface = () => {
   const ragService = new RAGService();
+
+  // Configure the RAG service with the environment variable when component mounts
+  useEffect(() => {
+    // Get the API base URL from environment variables
+    let apiBaseUrl = 'http://localhost:8002'; // Default fallback
+
+    // Check for REACT_APP_API_BASE_URL environment variable (for Vercel deployment)
+    if (typeof process !== 'undefined' && process.env && process.env.REACT_APP_API_BASE_URL) {
+      apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+    }
+    // Also check for API_BASE_URL as fallback
+    else if (typeof process !== 'undefined' && process.env && process.env.API_BASE_URL) {
+      apiBaseUrl = process.env.API_BASE_URL;
+    }
+    // For browser environment, check window object
+    else if (typeof window !== 'undefined' && window.REACT_APP_API_BASE_URL) {
+      apiBaseUrl = window.REACT_APP_API_BASE_URL;
+    } else if (typeof window !== 'undefined' && window.API_BASE_URL) {
+      apiBaseUrl = window.API_BASE_URL;
+    }
+
+    // Configure the RAG service with the proper API base URL
+    ragService.configureAPI(apiBaseUrl);
+  }, []);
   const {
     messages,
     isLoading,
