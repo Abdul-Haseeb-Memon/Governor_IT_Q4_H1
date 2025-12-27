@@ -1,10 +1,9 @@
 import axios from 'axios';
 
 class RAGService {
-  constructor() {
-    // For development, use a direct URL that we know works
-    // In production, this could be configured differently
-    this.apiBaseUrl = 'http://localhost:8002'; // Direct connection to backend server (new port)
+  constructor(apiBaseUrl = null) {
+    // Initialize with provided URL or leave as null to be configured later
+    this.apiBaseUrl = apiBaseUrl || null;
 
     this.authToken = null; // No authentication token for development
   }

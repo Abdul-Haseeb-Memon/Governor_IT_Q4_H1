@@ -19,18 +19,16 @@ const debounce = (func, wait) => {
 };
 
 const ChatInterface = () => {
-  const ragService = new RAGService();
+  // Get the API base URL from config and initialize RAG service with it
+  const apiBaseUrl = config.API_BASE_URL;
+  console.log('Initial API Base URL from config:', apiBaseUrl); // Debug log
+  const ragService = new RAGService(apiBaseUrl);
 
-  // Configure the RAG service with the environment variable when component mounts
+  // Log the configured API URL when component mounts
   useEffect(() => {
-    // Get the API base URL from the config file
-    const apiBaseUrl = config.API_BASE_URL;
+    console.log('RAGService initialized with API Base URL:', ragService.getApiBaseUrl());
+  }, [ragService]);
 
-    console.log('Configured API Base URL:', apiBaseUrl); // Debug log
-
-    // Configure the RAG service with the proper API base URL
-    ragService.configureAPI(apiBaseUrl);
-  }, []);
   const {
     messages,
     isLoading,
