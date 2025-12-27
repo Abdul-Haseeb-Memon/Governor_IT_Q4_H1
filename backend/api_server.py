@@ -101,7 +101,7 @@ async def answer_endpoint(request: AnswerRequest):
         sources = [chunk.get('source_url', '') for chunk in request.context if 'source_url' in chunk]
 
         # Generate answer using the backend system
-        answer_obj: GeneratedAnswer = generate_answer(request.query, context_texts, sources)
+        answer_obj = generate_answer(request.query, context_texts, sources)
 
         response = AnswerResponse(
             answer=answer_obj.answer_text,

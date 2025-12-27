@@ -8,6 +8,7 @@ import logging
 import re
 from typing import List, Optional, Dict, Any
 from .config import Config
+from .answer_generator import GeneratedAnswer
 
 
 logger = logging.getLogger(__name__)
