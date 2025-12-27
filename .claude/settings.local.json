@@ -126,7 +126,10 @@
       "Bash(taskkill /PID 7676 /F)",
       "Bash(taskkill /F /PID 7676)",
       "Bash(findstr :3000)",
-      "Bash(powershell -Command \"Stop-Process -Id 11400 -Force\")"
+      "Bash(powershell -Command \"Stop-Process -Id 11400 -Force\")",
+      "Bash(git commit -m \"Fix RAGService configuration to use environment variables\n\n- Add useEffect hook to configure RAGService with REACT_APP_API_BASE_URL\n- Check for both REACT_APP_API_BASE_URL and API_BASE_URL environment variables\n- Support both server-side \\(process.env\\) and client-side \\(window\\) environments\n- This fixes the connection issue between Vercel frontend and Render backend\" -m \"🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\" -m \"Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\")",
+      "Bash(git push origin main)",
+      "Skill(sp.tasks)"
     ]
   }
 }
