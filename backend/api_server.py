@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from retrieval.retrieve import retrieve_relevant_content
 from answer_generation.answer_generator import generate_answer
-# Import the GeneratedAnswer class separately to avoid conflicts
+# Import GeneratedAnswer separately to avoid potential import issues
 from answer_generation.answer_generator import GeneratedAnswer
 from ingestion.ingest import run_ingestion_pipeline
 
