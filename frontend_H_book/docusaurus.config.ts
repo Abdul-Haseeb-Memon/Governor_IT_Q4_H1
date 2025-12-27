@@ -22,7 +22,7 @@ const config: Config = {
 
   // Custom fields to pass environment variables to the frontend
   customFields: {
-    apiBaseUrl: process.env.REACT_APP_API_BASE_URL || process.env.API_BASE_URL || 'https://governor-it-q4-h1.onrender.com'
+    apiBaseUrl: (process.env && process.env.REACT_APP_API_BASE_URL) || (process.env && process.env.API_BASE_URL) || 'https://governor-it-q4-h1.onrender.com'
   },
 
   // GitHub pages deployment config.
