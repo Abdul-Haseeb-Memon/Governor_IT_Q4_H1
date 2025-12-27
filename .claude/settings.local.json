@@ -126,7 +126,16 @@
       "Bash(taskkill /PID 7676 /F)",
       "Bash(taskkill /F /PID 7676)",
       "Bash(findstr :3000)",
+<<<<<<< Updated upstream
       "Bash(powershell -Command \"Stop-Process -Id 11400 -Force\")"
+=======
+      "Bash(powershell -Command \"Stop-Process -Id 11400 -Force\")",
+      "Bash(git commit -m \"Fix RAGService configuration to use environment variables\n\n- Add useEffect hook to configure RAGService with REACT_APP_API_BASE_URL\n- Check for both REACT_APP_API_BASE_URL and API_BASE_URL environment variables\n- Support both server-side \\(process.env\\) and client-side \\(window\\) environments\n- This fixes the connection issue between Vercel frontend and Render backend\" -m \"🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\" -m \"Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\")",
+      "Bash(git push origin main)",
+      "Skill(sp.tasks)",
+      "Bash(git commit -m \"Enhance UI/UX design with modern color schemes and improved accessibility\n\n- Update CSS variables for better color consistency across light/dark modes\n- Enhance ChatInterface.jsx with modern styling using CSS variables\n- Improve ChatDisplay.jsx message styling for better visual hierarchy\n- Update ChatInput.jsx with enhanced input field and button styling\n- Add smooth transitions and animations for better user experience\n- Ensure proper contrast ratios for accessibility compliance\n- Implement responsive design improvements for all screen sizes\" -m \"🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\" -m \"Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\")",
+      "Bash(git push origin 011-ui-ux-improvements)"
+>>>>>>> Stashed changes
     ]
   }
 }
