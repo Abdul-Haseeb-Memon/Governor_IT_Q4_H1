@@ -88,7 +88,7 @@ const ChatInput = ({ onSubmit, isLoading = false }) => {
         .chat-input-textarea {
           width: 100%;
           padding: 1.125rem;
-          border: 2px solid #e9ecef;
+          border: 2px solid var(--ifm-border-color);
           border-radius: 16px;
           resize: vertical;
           font-family: inherit;
@@ -96,25 +96,25 @@ const ChatInput = ({ onSubmit, isLoading = false }) => {
           line-height: 1.6;
           min-height: 90px;
           transition: all 0.3s ease;
-          background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+          background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-gray-100) 100%);
           box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
         }
 
         .chat-input-textarea:focus {
           outline: none;
-          border-color: #007cba;
-          box-shadow: 0 0 0 4px rgba(0, 124, 186, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.05);
-          background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+          border-color: var(--ifm-color-primary);
+          box-shadow: 0 0 0 4px rgba(67, 56, 202, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+          background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-gray-100) 100%);
         }
 
         .chat-input-textarea::placeholder {
-          color: #adb5bd;
+          color: var(--ifm-color-gray-400);
           font-style: italic;
         }
 
         .chat-submit-button {
           padding: 0.875rem 1.75rem;
-          background: linear-gradient(135deg, #007cba 0%, #0056b3 100%);
+          background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
           color: white;
           border: none;
           border-radius: 16px;
@@ -124,7 +124,7 @@ const ChatInput = ({ onSubmit, isLoading = false }) => {
           transition: all 0.3s ease;
           align-self: flex-end;
           min-width: 100px;
-          box-shadow: 0 4px 15px rgba(0, 124, 186, 0.3);
+          box-shadow: var(--ifm-shadow-md);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -132,18 +132,18 @@ const ChatInput = ({ onSubmit, isLoading = false }) => {
         }
 
         .chat-submit-button:hover:not(:disabled) {
-          background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+          background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary-darker) 100%);
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(0, 124, 186, 0.4);
+          box-shadow: var(--ifm-shadow-lg);
         }
 
         .chat-submit-button:active:not(:disabled) {
           transform: translateY(0);
-          box-shadow: 0 2px 10px rgba(0, 124, 186, 0.3);
+          box-shadow: var(--ifm-shadow-md);
         }
 
         .chat-submit-button:disabled {
-          background: linear-gradient(135deg, #adb5bd 0%, #868e96 100%);
+          background: linear-gradient(135deg, var(--ifm-color-gray-400) 0%, var(--ifm-color-gray-500) 100%);
           cursor: not-allowed;
           transform: none;
           box-shadow: none;
@@ -153,22 +153,22 @@ const ChatInput = ({ onSubmit, isLoading = false }) => {
         .loading-indicator {
           margin-top: 0.875rem;
           font-style: italic;
-          color: #6c757d;
+          color: var(--ifm-text-color-secondary);
           display: flex;
           align-items: center;
           gap: 0.875rem;
           font-size: 0.95rem;
           padding: 0.75rem;
-          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          background: linear-gradient(135deg, var(--ifm-color-gray-100) 0%, var(--ifm-color-gray-200) 100%);
           border-radius: 12px;
-          border-left: 4px solid #007cba;
+          border-left: 4px solid var(--ifm-color-primary);
         }
 
         .loading-spinner {
           width: 20px;
           height: 20px;
-          border: 2px solid #e9ecef;
-          border-top: 2px solid #007cba;
+          border: 2px solid var(--ifm-border-color);
+          border-top: 2px solid var(--ifm-color-primary);
           border-radius: 50%;
           animation: spin 1s linear infinite;
         }

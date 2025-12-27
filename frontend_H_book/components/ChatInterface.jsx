@@ -122,11 +122,11 @@ const ChatInterface = () => {
           height: 80vh;
           min-height: 500px;
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-          background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-          border-radius: 16px;
+          background: linear-gradient(135deg, var(--ifm-color-gray-100) 0%, var(--ifm-color-gray-200) 100%);
+          border-radius: 20px;
           padding: 1.5rem;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          background-color: white;
+          box-shadow: var(--ifm-shadow-xl);
+          background-color: var(--ifm-background-surface-color);
           overflow: hidden;
           position: relative;
         }
@@ -138,7 +138,7 @@ const ChatInterface = () => {
           left: 0;
           right: 0;
           height: 4px;
-          background: linear-gradient(90deg, #007cba, #0056b3, #007cba);
+          background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-light), var(--ifm-color-primary));
           background-size: 200% 200%;
           animation: gradient 3s ease infinite;
         }
@@ -155,7 +155,7 @@ const ChatInterface = () => {
           align-items: center;
           margin-bottom: 1.5rem;
           padding-bottom: 1rem;
-          border-bottom: 2px solid #f0f0f0;
+          border-bottom: 2px solid var(--ifm-border-color);
           position: relative;
         }
 
@@ -166,15 +166,15 @@ const ChatInterface = () => {
           left: 0;
           right: 0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #007cba, transparent);
+          background: linear-gradient(90deg, transparent, var(--ifm-color-primary), transparent);
         }
 
         h2 {
           margin: 0;
-          color: #1a1a1a;
+          color: var(--ifm-text-color);
           font-size: 1.75rem;
           font-weight: 700;
-          background: linear-gradient(135deg, #007cba, #0056b3);
+          background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -190,7 +190,7 @@ const ChatInterface = () => {
           font-size: 0.9rem;
           font-weight: 600;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+          box-shadow: var(--ifm-shadow-md);
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -198,7 +198,7 @@ const ChatInterface = () => {
 
         .clear-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(220, 53, 69, 0.3);
+          box-shadow: var(--ifm-shadow-lg);
           background: linear-gradient(135deg, #c82333, #b2212f);
         }
 
@@ -215,13 +215,16 @@ const ChatInterface = () => {
           font-size: 0.95rem;
           margin-top: 0.75rem;
           border-left: 4px solid #dc3545;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          box-shadow: var(--ifm-shadow-sm);
         }
 
         .chat-area {
           flex: 1;
           margin-bottom: 1.5rem;
           overflow: hidden;
+          border-radius: 16px;
+          background: var(--ifm-background-color);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .input-area {
@@ -230,12 +233,12 @@ const ChatInterface = () => {
           backdrop-filter: blur(10px);
           border-radius: 16px;
           padding: 1rem;
-          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+          box-shadow: var(--ifm-shadow-lg);
         }
 
         .chat-area:focus,
         .input-area:focus {
-          outline: 2px solid #007cba;
+          outline: 2px solid var(--ifm-color-primary);
         }
 
         /* Responsive design */
@@ -245,7 +248,7 @@ const ChatInterface = () => {
             min-height: 450px;
             padding: 1rem;
             margin: 0.5rem;
-            border-radius: 12px;
+            border-radius: 16px;
           }
 
           .chat-header {

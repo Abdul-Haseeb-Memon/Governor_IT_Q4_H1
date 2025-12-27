@@ -77,7 +77,7 @@ const ChatDisplay = memo(({ messages = [] }) => {
           overflow-y: auto;
           border-radius: 12px;
           padding: 1.25rem;
-          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+          background: linear-gradient(135deg, var(--ifm-color-gray-100) 0%, var(--ifm-color-gray-200) 100%);
           background-attachment: fixed;
           position: relative;
         }
@@ -89,14 +89,14 @@ const ChatDisplay = memo(({ messages = [] }) => {
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(ellipse at top, rgba(0, 124, 186, 0.05) 0%, transparent 70%);
+          background: radial-gradient(ellipse at top, rgba(67, 56, 202, 0.05) 0%, transparent 70%);
           pointer-events: none;
         }
 
         .empty-state {
           text-align: center;
           padding: 3rem 1rem;
-          color: #666;
+          color: var(--ifm-text-color-secondary);
           font-style: italic;
           font-size: 1.1rem;
           display: flex;
@@ -127,13 +127,13 @@ const ChatDisplay = memo(({ messages = [] }) => {
           max-width: 80%;
           position: relative;
           animation: fadeIn 0.3s ease-out;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+          box-shadow: var(--ifm-shadow-md);
           transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .message:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+          box-shadow: var(--ifm-shadow-lg);
         }
 
         @keyframes fadeIn {
@@ -142,18 +142,18 @@ const ChatDisplay = memo(({ messages = [] }) => {
         }
 
         .message.user {
-          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+          background: linear-gradient(135deg, var(--ifm-color-gray-100) 0%, var(--ifm-color-gray-200) 100%);
           align-self: flex-end;
           margin-left: auto;
           border-bottom-right-radius: 4px;
-          border: 1px solid rgba(0, 124, 186, 0.1);
+          border: 1px solid rgba(67, 56, 202, 0.1);
         }
 
         .message.system {
-          background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+          background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-gray-100) 100%);
           align-self: flex-start;
           border-bottom-left-radius: 4px;
-          border: 1px solid rgba(0, 0, 0, 0.05);
+          border: 1px solid var(--ifm-border-color);
         }
 
         .message-content {
@@ -162,7 +162,7 @@ const ChatDisplay = memo(({ messages = [] }) => {
 
         .answer-text {
           line-height: 1.7;
-          color: #2c3e50;
+          color: var(--ifm-text-color);
           font-size: 1.05rem;
           word-wrap: break-word;
         }
@@ -170,7 +170,7 @@ const ChatDisplay = memo(({ messages = [] }) => {
         .sources-section {
           margin-top: 1rem;
           padding-top: 0.75rem;
-          border-top: 1px solid rgba(0, 0, 0, 0.08);
+          border-top: 1px solid var(--ifm-border-color);
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -178,7 +178,7 @@ const ChatDisplay = memo(({ messages = [] }) => {
 
         .sources-label {
           font-size: 0.8rem;
-          color: #6c757d;
+          color: var(--ifm-text-color-secondary);
           font-weight: 500;
           white-space: nowrap;
         }
@@ -196,30 +196,30 @@ const ChatDisplay = memo(({ messages = [] }) => {
           justify-content: center;
           width: 28px;
           height: 28px;
-          border: 2px solid #e9ecef;
+          border: 2px solid var(--ifm-border-color);
           border-radius: 50%;
-          background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-          color: #495057;
+          background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-color-gray-100) 100%);
+          color: var(--ifm-text-color-secondary);
           text-decoration: none;
           transition: all 0.3s ease;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: var(--ifm-shadow-sm);
         }
 
         .source-icon:hover {
-          background: linear-gradient(135deg, #007cba 0%, #0056b3 100%);
+          background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
           color: white;
-          border-color: #007cba;
+          border-color: var(--ifm-color-primary);
           transform: translateY(-2px) scale(1.1);
-          box-shadow: 0 4px 12px rgba(0, 124, 186, 0.3);
+          box-shadow: var(--ifm-shadow-md);
         }
 
         .source-count {
           font-size: 0.75rem;
-          color: #6c757d;
-          background: rgba(0, 124, 186, 0.1);
+          color: var(--ifm-text-color-secondary);
+          background: rgba(67, 56, 202, 0.1);
           padding: 3px 8px;
           border-radius: 12px;
-          border: 1px solid rgba(0, 124, 186, 0.2);
+          border: 1px solid rgba(67, 56, 202, 0.2);
           font-weight: 500;
         }
 
@@ -243,7 +243,7 @@ const ChatDisplay = memo(({ messages = [] }) => {
         }
 
         .timestamp {
-          color: #6c757d;
+          color: var(--ifm-text-color-secondary);
           font-size: 0.75rem;
           text-align: right;
           font-weight: 500;
